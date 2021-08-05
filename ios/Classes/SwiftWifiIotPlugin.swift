@@ -235,11 +235,11 @@ public class SwiftWifiIotPlugin: NSObject, FlutterPlugin {
 
     private func getSSID() -> String? {
         var ssid: String?
-        if #available(iOS 14.0, *) {
-            NEHotspotNetwork.fetchCurrent(completionHandler: { currentNetwork in
-                ssid = currentNetwork?.ssid
-            })
-        } else {
+//         if #available(iOS 14.0, *) {
+//             NEHotspotNetwork.fetchCurrent(completionHandler: { currentNetwork in
+//                 ssid = currentNetwork?.ssid
+//             })
+//         } else {
             if let interfaces = CNCopySupportedInterfaces() as NSArray? {
                 for interface in interfaces {
                     if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
@@ -248,17 +248,17 @@ public class SwiftWifiIotPlugin: NSObject, FlutterPlugin {
                     }
                 }
             }
-        }
+//         }
         return ssid
     }
 
     private func getBSSID() -> String? {
         var bssid: String?
-        if #available(iOS 14.0, *) {
-            NEHotspotNetwork.fetchCurrent(completionHandler: { currentNetwork in
-                bssid = currentNetwork?.bssid
-            })
-        } else {
+//         if #available(iOS 14.0, *) {
+//             NEHotspotNetwork.fetchCurrent(completionHandler: { currentNetwork in
+//                 bssid = currentNetwork?.bssid
+//             })
+//         } else {
             if let interfaces = CNCopySupportedInterfaces() as NSArray? {
                 for interface in interfaces {
                     if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
@@ -267,7 +267,7 @@ public class SwiftWifiIotPlugin: NSObject, FlutterPlugin {
                     }
                 }
             }
-        }
+//         }
         return bssid
     }
 
